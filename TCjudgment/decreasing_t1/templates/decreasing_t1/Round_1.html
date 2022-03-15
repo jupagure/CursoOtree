@@ -1,0 +1,153 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div style="margin:0 auto;">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <div id="container" style="margin:auto; width: 100%">
+        <script>
+             var data1 = {{ highchart_series1|json }};
+             $(function () {
+                Highcharts.setOptions({
+                    lang: {
+                      thousandsSep: ''
+                    },
+                  });
+                $('#container').highcharts({
+                    title: {
+                        text: 'Daily Infection Cases',
+                        style: {
+                                    fontSize: '20px'
+                                },
+                    },
+                    chart: {
+                        height: 550,
+                    },
+
+                    xAxis: {
+                         label: 'Days',
+                         tickInterval: 10,
+                         min: 0,
+                         max: 340,
+                         plotLines: [{
+                         color: '#FF0000', // Red
+                         width: 2,
+                         value: 320 // Position, you'll have to translate this to the values on your x axis
+                         }],
+
+                         title: {
+                                enabled: true,
+                                text: 'Days',
+                                style: {
+                                    fontSize: '20px'
+                                },
+                          },
+                      },
+
+                    yAxis: [{
+
+                        labels: {
+                           format: '{value}'
+                        },
+                        tickInterval: 50,
+                        min: 100,
+                        max: 1000,
+                        title: {
+                                enabled: true,
+                                text: 'Daily Infection Cases',
+                                style: {
+                                    fontSize: '20px'
+                                },
+                          },
+                        },
+
+                        {
+                        labels: {
+                           format: '{value}'
+                        },
+                        tickInterval: 50,
+                        tickAmount: 19,
+                        min: 100,
+                        max: 1000,
+                        opposite:true,
+                        title: {
+                                enabled: false,
+                                },
+                        }],
+
+
+                      legend: {
+                        enabled: false
+                        },
+                    plotOptions: {
+                        series: {
+                            animation: false,
+                            pointStart: 0,
+                            color: '#0000FF',
+                             marker: {
+                                enabled: true,
+                                fillColor: '#0000FF',
+                                radius: 2
+                                 }
+                            }
+                    },
+                    series:[{
+                            name: 'Infection Cases',
+                            data: data1,
+                            }],
+
+                     credits: {
+                            enabled: false
+                    }
+                });
+             });
+
+        </script>
+    </div>
+</div>
+
+
+<div style = "clear: both"></div>
+
+<br>
+
+<div id="container">
+     <div style ="margin: auto; width: 100%">
+         <div class = "card bg-light">
+             <div class="card-body">
+                 <h4>
+                     Step 1 (out of 4)
+                </h4>
+                    <p><font size="4">
+                         <strong> Today is Day 310.</strong> <br>
+                        <div style = "border: 3px solid #000000;padding: 10px;">
+                                - The study setting is hypothetical and has NO relation to the current COVID outbreak. <br>
+                                - Assume that currently no effective vaccine exists for the virus. It is expected to take 6 months to develop the effective vaccine from now. <br>
+                        </div>
+                        <br>
+                        Please forecast the daily infection cases <strong>after 10 days (Day 320).</strong>
+                        </font>
+                    </p>
+                <div>
+
+                    <td> {% formfield player.forecast_10 label = ""%}</td>
+
+                </div>
+
+                 {% next_button %}
+             </div>
+        </div>
+     </div>
+</div>
+
+<div style = "clear: both"></div>
+
+
+<br><br>
+
+{% include Constants.instructions_template %}
+
+
+
+{% endblock %}

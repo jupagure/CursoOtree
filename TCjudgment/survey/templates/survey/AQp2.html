@@ -1,0 +1,74 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+  Questionnaire I: Page 2 (out of 3)
+{% endblock %}
+
+{% block content %}
+ <br>
+     <p><h6>Please answer the following questions.</h6></p>
+     <br>
+
+   <p>3. I thought that it was ambiguous to predict how much the infection cases would change in the future.<br> (1 = Strongly disagree / 7 = Strongly agree)</p>
+        <table class='table table-sm text-center'>
+                 <colgroup>
+                    <col width="14.28%">
+                    <col width="14.28%">
+                     <col width="14.28%">
+                     <col width="14.28%">
+                    <col width="14.28%">
+                     <col width="14.28%">
+                     <col width="14.28%">
+                 </colgroup>
+       <tr>
+            {% for choice in form.AQ3 %}
+                <td>{{ choice }}</td>
+           {% endfor %}
+       </tr>
+        </table>
+
+    <br>
+   <br>
+ <p>4. I am confident about the forecasts that I made. I expect high accuracy.<br> (1 = Strongly disagree / 7 = Strongly agree)</p>
+        <table class='table table-sm text-center'>
+                 <colgroup>
+                    <col width="14.28%">
+                    <col width="14.28%">
+                     <col width="14.28%">
+                     <col width="14.28%">
+                    <col width="14.28%">
+                     <col width="14.28%">
+                     <col width="14.28%">
+                 </colgroup>
+       <tr>
+            {% for choice in form.AQ4 %}
+                <td>{{ choice }}</td>
+           {% endfor %}
+       </tr>
+        </table>
+
+    <br>
+   <br>
+     <p>5. I feel anxious about a general pandemic situation.<br> (1 = Strongly disagree / 7 = Strongly agree)</p>
+        <table class='table table-sm text-center'>
+                 <colgroup>
+                    <col width="14.28%">
+                    <col width="14.28%">
+                     <col width="14.28%">
+                     <col width="14.28%">
+                    <col width="14.28%">
+                     <col width="14.28%">
+                     <col width="14.28%">
+                 </colgroup>
+       <tr>
+            {% for choice in form.AQ5 %}
+                <td>{{ choice }}</td>
+           {% endfor %}
+       </tr>
+        </table>
+     <br>
+     <br>
+
+{% next_button %}
+{% endblock %}

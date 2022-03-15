@@ -1,0 +1,194 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+<div style="margin:0 auto;">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <div id="container" style="margin:auto; width: 100%">
+        <script>
+             var data1 = {{ highchart_series1|json }};
+             var forecast_10 = {{ forecast_10|json }};
+             var forecast_20 = {{ forecast_20|json }};
+             var forecast_30 = {{ forecast_30|json }};
+             $(function () {
+                Highcharts.setOptions({
+                    lang: {
+                      thousandsSep: ''
+                    },
+                  });
+                $('#container').highcharts({
+                    title: {
+                        text: 'Daily Infection Cases',
+                        style: {
+                                    fontSize: '20px'
+                                },
+                    },
+                    chart: {
+                        height: 550,
+                    },
+
+                    xAxis: {
+                         label: 'Days',
+                         tickInterval: 10,
+                         min: 0,
+                         max: 250,
+
+                         title: {
+                                enabled: true,
+                                text: 'Days',
+                                style: {
+                                    fontSize: '20px'
+                                },
+                          },
+                      },
+
+                    yAxis: [{
+
+                        labels: {
+                           format: '{value}'
+                        },
+                        tickInterval: 50,
+                        min: 100,
+                        max: 1000,
+                        title: {
+                                enabled: true,
+                                text: 'Daily Infection Cases',
+                                style: {
+                                    fontSize: '20px'
+                                },
+                          },
+                        },
+
+                        {
+                        labels: {
+                           format: '{value}'
+                        },
+                        tickInterval: 50,
+                        tickAmount: 19,
+                        min: 100,
+                        max: 1000,
+                        opposite:true,
+                        title: {
+                                enabled: false,
+                                },
+                        }],
+                      legend: {
+                        enabled: false
+                        },
+                    plotOptions: {
+                        series: {
+                            animation: false,
+                            pointStart: 0,
+                            },
+
+                    },
+                    series:[{
+                            color: '#0000FF',
+                            marker: {
+                                enabled: true,
+                                fillColor: '#0000FF',
+                                radius: 2
+                                 },
+                            name: 'Infection Cases',
+                            data: data1,
+                            },
+                            {
+                             color: '#FF0000',
+                             marker: {
+	                                fillColor: '#FF0000',
+	                                radius: 4
+	                                },
+                            name: 'Forecast',
+                            data: [[230,forecast_10],
+                                   [231,null],
+                                   [232,null],
+                                   [233,null],
+                                   [234,null],
+                                   [235,null],
+                                   [236,null],
+                                   [237,null],
+                                   [238,null],
+                                   [239,null],
+                                   [240,forecast_20],
+                                   [241,null],
+                                   [242,null],
+                                   [243,null],
+                                   [244,null],
+                                   [245,null],
+                                   [246,null],
+                                   [247,null],
+                                   [248,null],
+                                   [249,null],
+                                   [250,forecast_30]]
+                            }],
+
+
+                     credits: {
+                            enabled: false
+                    }
+                });
+             });
+
+        </script>
+    </div>
+</div>
+
+
+<div style = "clear: both"></div>
+
+<br>
+
+<div id="container">
+     <div style ="margin: auto; width: 100%">
+         <div class = "card bg-light">
+             <div class="card-body">
+                 <h4>
+                     Round 4 (out of 4)
+                </h4>
+                  <p><font size="4">
+                      <strong> Today is Day 220.</strong> <br>
+                        <div style = "border: 3px solid #000000;padding: 10px;">
+                                - The study setting is hypothetical and has NO relation to the current COVID outbreak. <br>
+                                - Assume that currently no effective vaccine exists for the virus. It is expected to take 6 months to develop the effective vaccine from now. <br>
+                        </div>
+                        <br>
+
+                        </font>
+                    </p>
+                <div>
+                    <p><font size="4">
+                    Please forecast the daily infection cases <strong>after 180 days (6 months later).</strong>
+
+                    <td> {% formfield player.forecast_6m label = ""%}</td>
+                    </font>
+                    </p>
+                </div>
+
+                  <p><font size="4">
+                        Please forecast daily infection cases <strong>after 365 days (1 year later). </strong>
+                        </font>
+                    </p>
+                <div>
+
+                    <td> {% formfield player.forecast_1y label = ""%}</td>
+
+                </div>
+
+
+                 {% next_button %}
+             </div>
+        </div>
+     </div>
+</div>
+
+<div style = "clear: both"></div>
+
+
+<br><br>
+
+{% include Constants.instructions_template %}
+
+
+
+{% endblock %}

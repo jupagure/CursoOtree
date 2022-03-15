@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Comprehension Questions
+{% endblock %}
+
+{% block content %}
+
+ <div class="card bg-light">
+        <div class="card-body">
+       <p>
+           Please answer the following questions.
+           You are required to answer all questions correctly in order to proceed to the actual experiment.
+           Note that the general instructions are available at the bottom of the page.
+       </p>
+       <br>
+            {% if chosen_demand == 0 %}
+            <p style="text-align: center;"> <img src="{% static 'increasing_t1_1_experiment.png' %}"/>  </p>
+            {% endif %}
+            {% if chosen_demand == 1 %}
+            <p style="text-align: center;"> <img src="{% static 'increasing_t1_2_experiment.png' %}"/>  </p>
+            {% endif %}
+            {% if chosen_demand == 2 %}
+            <p style="text-align: center;"> <img src="{% static 'increasing_t1_3_experiment.png' %}"/>  </p>
+            {% endif %}
+
+ </div>
+ </div>
+<br>
+
+<p> {% formfield player.CQ1 label = "1. You are currently in day 220 of the pandemic. Which describes the number of daily infection case today?" %} </p>
+<p> {% formfield player.CQ2 label = "2. What is your main task for this study?" %} </p>
+<p> {% formfield player.CQ3 label = "3. You will be entering your forecasts in 4 steps. The forecast horizons (future time period for which you are asked to provide a forecasting judgment) will be indicated by red vertical lines during the first three steps. The red vertical line in the figure above indicates the forecast horizon in the first step. What is the forecast horizon for this step?" %}</p>
+<p> {% formfield player.CQ4 label = "4. What is NOT TRUE about the setting of this experiment?" %} </p>
+<br>
+
+{% next_button %}
+
+<br>
+<br>
+{% include Constants.instructions_template %}
+
+{% endblock %}
