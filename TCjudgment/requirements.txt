@@ -1,4 +1,0 @@
-# oTree-may-not-overwrite-this-file
--r requirements_base.txt
-psycopg2 < 2.9
-
