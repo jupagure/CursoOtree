@@ -48,6 +48,98 @@
     </p>
 {{ else }}
         <p>
+            A continuación, verá una matriz de {{ C.NUM_ROWS }}x{{ C.NUM_COLS }}- que contiene
+            {{ C.NUM_BOXES }} casillas en tu pantalla.
+        </p>
+
+        {{ if C.RANDOM }}
+        <p>
+            Tan pronto como comience la tarea presionando el botón 'Iniciar',
+            una de las cajas se recolecta cada {{ C.TIME_INTERVAL }} segundo(s) al azar.
+            Una vez recopilada, la casilla se marca con un símbolo de marca.
+            Por cada caja recolectada ganas {{ C.BOX_VALUE }}.
+        </p>
+        {{ else }}
+        <p>
+            Tan pronto como comience la tarea presionando el botón 'Iniciar',
+            uno de los cuadros se recopila cada {{ C.TIME_INTERVAL }} segundo(s), comenzando desde la esquina superior izquierda.
+            Una vez recopilada, la casilla se marca con un símbolo de marca.
+            Por cada caja recolectada, ganas {{ C.BOX_VALUE }}.
+        </p>
+        {{ endif }}
+
+         <p>
+            Detrás de una de las cajas se esconde una bomba que destruye todo lo que se ha recogido.
+            Las {{ num_nobomb }} cajas restantes valen {{ C.BOX_VALUE }} cada una.
+            No sabes dónde se encuentra la bomba.
+            Solo sabes que la bomba puede estar en cualquier lugar con igual probabilidad.
+            
+        </p>
+        <p>
+            Su tarea es elegir cuándo detener el proceso de recolección. Lo hace pulsando 'Detener' en cualquier momento.
+            Si recoges la caja donde se encuentra la bomba, la bomba explotará y ganarás cero.
+            Si te detienes antes de recoger la bomba, ganas la cantidad acumulada hasta el momento.
+        </p>
+        <p>
+            Al final de la tarea, los cuadros se alternan presionando el botón 'Resolver'.
+            Se mostrará un signo de dólar o un símbolo de fuego (para la bomba) en cada una de las cajas recolectadas.
+        </p>
+{{ endif }}
+</div>
+
+{{ next_button }}
+{{ endblock }}
+
+<!-- {{ block styles }}
+<link href="{{ static 'bret/css/custom.css' }}" rel="stylesheet"/>
+{{ endblock }}
+
+
+{{ block title }}
+{{ Lexicon.instructions }}
+{{ endblock }}
+
+{{ block content }}
+
+<div class="instructions">
+{{ if de }}
+        <p>
+            Nachfolgend sehen sie eine {{ C.NUM_ROWS }}x{{ C.NUM_COLS }}-Matrix, die {{ C.NUM_BOXES }} Boxen beinhaltet.
+        </p>
+
+        <p>
+            Sobald Sie die Aufgabe durch Klicken des 'Start' Buttons beginnen, wird eine
+            Box pro Sekunde - beginnend in der oberen linken Ecke - gesammelt. Bereits
+            gesammelte Boxen werden mit einem Häkchen markiert. Für jede gesammelte Box
+            erhalten Sie {{ C.BOX_VALUE }}.
+
+        </p>
+
+        <p>
+            Hinter einer der Boxen ist eine Bombe versteckt, die alles zerstört, was
+    bisher eingesammelt wurde. Die verbleibenden {{ num_nobomb }} Boxen sind
+    jeweils {{ C.BOX_VALUE }} wert. Sie wissen nicht hinter welcher Box die Bombe
+    versteckt ist. Sie wissen nur, dass sich die Bombe in einer beliebigen Box
+    mit gleicher Wahrscheinlichkeit befindet.
+
+        </p>
+        <p>
+            Ihre Aufgabe besteht darin, den Sammelprozess zu beenden. Dies geschieht
+    durch einen Klick auf den Button 'Stop' zu jeder beliebigen Zeit. Wenn Sie
+    die Box einsammeln, in der sich die Bombe befindet, wird die Bombe
+    explodieren und ihre Auszahlung beträgt null. Wenn Sie die Aufgabe beenden
+    ohne die Bombe einzusammeln erhalten Sie den bis dahin gesammelten Betrag.
+
+        </p>
+        <p>
+            Nachdem Sie die Aufgabe mit 'Stop' beendet haben, können die Boxen durch
+    einen Klick auf den Button 'Auflösen' umgedreht werden. Ein Dollarzeichen
+    oder ein Feuersymbol (für die Bombe) wird auf jeder von Ihnen gesammelten
+    Box angezeigt.
+
+    </p>
+{{ else }}
+        <p>
             In the following, you will see a {{ C.NUM_ROWS }}x{{ C.NUM_COLS }}-matrix containing
             {{ C.NUM_BOXES }} boxes on your screen.
         </p>
@@ -87,4 +179,4 @@
 </div>
 
 {{ next_button }}
-{{ endblock }}
+{{ endblock }} -->
