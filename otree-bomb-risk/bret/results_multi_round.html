@@ -2,8 +2,8 @@
     Die nachfolgende Tabelle fasst die Ergebnisse Ihrer Entscheidungen in den
     {{ C.NUM_ROUNDS }} gespielten Runden zusammen.
 {{ else }}
-    The table below summarizes the results of your decisions in the
-    {{ C.NUM_ROUNDS }} rounds played.
+    La tabla debajo muestras los resultados de tus deciones en las
+    {{ C.NUM_ROUNDS }} rondas jugadas.
 {{ endif }}
 </div>
 
@@ -44,16 +44,15 @@
             Für Ihre Auszahlung wurde Runde Nr. {{ round_to_pay }} zufällig ausgewählt.<br/>
             Entsprechend beträgt ihre Auszahlung aus dieser Aufgabe {{ total_payoff }}.
         {{ else }}
-            For your payment, round number {{ round_to_pay }} was randomly chosen. <br/>
-            Thus, your final payoff in this task amounts to {{ total_payoff }}.
+            Para tu pago, la ronda número {{ round_to_pay }} ha sido seleccionada aleatoriamente. <br/>
+            Por lo tanto, tu pago en esta prueba será de {{ total_payoff }}.
         {{ endif }}
     {{ else }}
         {{ if de }}
             Ihre Auszahlung wird durch die Summe aller gesammelten Beträge in allen
             Runden bestimmt. Dementsprechend beträgt Ihre Auszahlung aus dieser Aufgabe {{ total_payoff }}.
         {{ else }}
-            Your final payoff is determined by the sum of all payoffs per round
-            such that your final payoff in this task amounts to {{ total_payoff }}.
+            Tu pago final es determinado por la suma de todo lo ganado por ronda; por ello, tu pago final en esta prueba es de {{ total_payoff }}.
         {{ endif }}
     {{ endif }}
     </div>

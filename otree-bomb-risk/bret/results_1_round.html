@@ -2,14 +2,14 @@
     Sie haben sich entschieden {{ boxes_collected }} von {{ C.NUM_BOXES }} Boxen zu
     sammeln.
     {{ else }}
-    You chose to collect {{ boxes_collected }} out of {{ C.NUM_BOXES }} boxes.
+    Haz elegido en obtener {{ boxes_collected }} de {{ C.NUM_BOXES }} cajas.
     {{ endif }}
 
     <br/>
     {{ if de }}
     Die Bombe war hinter der Box in Reihe {{ bomb_row }}, Spalte {{ bomb_col }} versteckt.
     {{ else }}
-    The bomb was hidden behind the box in row {{ bomb_row }}, column {{ bomb_col }}.
+    La bombas estaba escondida en la caja de la fila {{ bomb_row }}, columna {{ bomb_col }}.
     {{ endif }}
     <br/>
     <br/>
@@ -19,8 +19,8 @@
         Boxen.<br/> Entsprechend wurden alle Ihre gesammelten Erträge zerstört und
         Ihre Auszahlung in dieser Aufgabe beträgt {{ payoff }}.
         {{ else }}
-        The bomb was among your {{ boxes_collected }} collected boxes.<br/>
-        Accordingly, all your earnings in this task were destroyed and your payoff amounts to {{ payoff }}.
+        La bomba estaba entre las {{ boxes_collected }} cajas recolectadas.<br/>
+        Por ello, todas tus ganancias en esta prueba han sido destruídas y tu pago sería de {{ payoff }}.
         {{ endif }}
     {{ else }}
         {{ if de }}
@@ -29,8 +29,8 @@
         Boxen, sodass sich Ihre Auszahlung in dieser Aufgabe auf <b>{{ payoff }}</b>
         beläuft.
         {{ else }}
-        Your collected boxes did not contain the bomb.<br/>
-        Thus, you receive {{ box_value }} for each of the {{ boxes_collected }} boxes
-        you collected such that your payoff from this task amounts to <b>{{ payoff }}</b>.
+        No has recolectado la bomba.<br/>
+        Por ello, recibes {{ box_value }} por cada una de las {{ boxes_collected }} cajas
+        recolectadas y tu pago sería de <b>{{ payoff }}</b>.
         {{ endif }}
     {{ endif }}

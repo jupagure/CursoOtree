@@ -1,7 +1,7 @@
 from os import environ
 
 SESSION_CONFIGS = [
-    dict(name='bret', display_name='Bomb Risk Elicitation Task', app_sequence=['bret'], num_demo_participants=1),
+    dict(name='bret', display_name='Prueba de elección ante riesgos totales', app_sequence=['bret'], num_demo_participants=1),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -21,16 +21,14 @@ SESSION_FIELDS = []
 LANGUAGE_CODE = 'en'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+REAL_WORLD_CURRENCY_CODE = 'PEN'
 USE_POINTS = True
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
-DEMO_PAGE_INTRO_HTML = """
-If you use this app, you must cite Holzmeister & Pfurtscheller,
-https://doi.org/10.1016/j.jbef.2016.03.004                     
+DEMO_PAGE_INTRO_HTML = """                
 """
 
 SECRET_KEY = '6364630175533'
