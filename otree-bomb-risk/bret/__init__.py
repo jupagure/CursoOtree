@@ -36,7 +36,7 @@ class C(BaseConstants):
     BOX_WIDTH = '50px'
 
     # number of rounds to be played
-    NUM_ROUNDS = 10
+    NUM_ROUNDS = 1
 
     # determines whether all rounds played are payed-off or whether one round is randomly chosen for payment
     # if <random_payoff = True>, one round is randomly determined for payment
@@ -71,7 +71,7 @@ class C(BaseConstants):
 
     # time interval between single boxes being collected (in seconds)
     # note that this only affects game play if <dynamic = True>
-    TIME_INTERVAL = 0.2
+    TIME_INTERVAL = 0.5
 
     # collect boxes randomly or systematically
     # if <random = False>, boxes are collected row-wise one-by-one, starting in the top-left corner
